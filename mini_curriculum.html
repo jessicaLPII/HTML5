@@ -16,12 +16,12 @@
   		padding: 15px;
   		border-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTADWbW_Z2VDYgcCXi4Nfm5zohsh8luChY4dG2OeyeL0samq2yc) 30 round;
 		}
-	  .titulo{
+	  div.titulo{
 	  	font-size: 40px;
 	  	font-family: cursive;
 	  	text-align: center;
 	  }
-	  .subtitulo{
+	  div.subtitulo{
 	  	font-size: 20px;
 	  	font-family: cursive;
 	  	font-style: italic;
@@ -32,16 +32,31 @@
 	  	font-family: cursive;
 	  	text-align: justify;
 	  }
-	  #foto{
-	  	padding: 40px 70px 0px 0px;
+	  div.foto {
+		width: 200px;
+  		height: 200px;
+  		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-image: url(https://github.com/jessicaLPII/HTML5/blob/master/jessica.jpg?raw=true);
+  		transition: width 2s, height 2s;
+ 	  }
+ 	  div.foto:hover {
+    	width: 300px;
+    	height: 300px;
+	  }
+
+	  div.container{
+	  	width: 151px;
+	  	padding: 25px;
+	  	background-color: lightGrey;
 	  }
 	</style>  
   </head>
 <body bgcolor="LightSteelBlue">
 
 <div id="bordertitle" class="titulo" align="justify">Mini Curriculum
-<div id="foto"><img src="C:\Users\Jéssica\Documents\GitHub\HTML5\jessica.png" alt="BAHÊA!! \o/" style="width:300px;height:350px;" align="right"></div>
-</div>	
+<div class="foto"></div>
+<!-- <div class="container"></div>	 -->
+</div>
 
 <div id="borderimg" class="text">
 
