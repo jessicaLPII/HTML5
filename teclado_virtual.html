@@ -3,8 +3,31 @@
 <head><title>Teclado Virtual</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Exemplo Fases do Evento</title>
-  
+  <style>
+  	.titulo{
+  		text-align: center;
+  		font-size: 24px;
+  		font-family: cursive;
+  		text-decoration: underline;
+  	}
+  	.button {
+  		width: 81px;
+		height: 50px;
+	    text-align: center;
+	    display: inline-block;
+	    font-size: 20px;
+	    cursor: pointer;
+	}
+	.button0 {
+		width: 250px;
+		height: 50px;
+		font-size: 20px;
+		cursor: pointer;
+	}
+	.visor{
+		height: 30px;
+	}
+  </style>  
   <script>
     window.onload = function(){
       var button = document.getElementById("button");
@@ -22,9 +45,31 @@
     }    
   </script>
 </head>
-<body>
+<body bgcolor="#4EEE94">
+  <br><br><br><div class="titulo">TECLADO VIRTUAL</div><br><br><br>
   <div>
-    <button id="button">Click Me</button>
+    <center><table width="160px" height="160px" cellspacing="0" border="1">
+    	<tr>
+    		<td colspan="3"><input class="visor" type="text" id="visor" size="31px" disabled></td>
+    	</tr>
+    	<tr>
+    		<td><button class="button">1</button></td>
+    		<td><button class="button">2</button></td>
+    		<td><button class="button">3</button></td>
+    	</tr>
+    	<tr>
+    		<td><button class="button">4</button></td>
+    		<td><button class="button">5</button></td>
+    		<td><button class="button">6</button></td>
+    	<tr>
+    		<td><button class="button">7</button></td>
+    		<td><button class="button">8</button></td>
+    		<td><button class="button">9</button></td>
+    	</tr>
+    	<tr>
+    		<td colspan="3"><button class="button0">0</button></td>
+    	</tr>
+    </table></center>
   </div>
 </body>
 </html>
