@@ -1,6 +1,30 @@
+<!DOCTYPE html>
 <html>
-<head><title></title></head>
+<head><title>Teclado Virtual</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Exemplo Fases do Evento</title>
+  
+  <script>
+    window.onload = function(){
+      var button = document.getElementById("button");
+      button.addEventListener("borboleta", action);
+      button.addEventListener("click", disp);
+      
+      function action(event){
+        alert(event.type);
+      }
+      function disp(event){
+        alert(event.type);
+        var e = new Event("borboleta");
+        event.target.dispatchEvent(e);
+      }
+    }    
+  </script>
+</head>
 <body>
-	TECLADO VIRTUAL
+  <div>
+    <button id="button">Click Me</button>
+  </div>
 </body>
-</hmtl>
+</html>
