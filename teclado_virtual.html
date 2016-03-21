@@ -27,46 +27,43 @@
 	.visor{
 		height: 30px;
 	}
-  </style>  
+  </style>
   <script>
     window.onload = function(){
-      var button = document.getElementById("button");
+      var button = document.getElementById("teclado");
+      var visor = document.getElementById("visor");
       button.addEventListener("click", mostrarValor);
       
       function mostrarValor(event){
-        alert(event.type);
-      }
-      function disp(event){
-        alert(event.type);
-        var e = new Event("mostrarValor");
-        event.target.dispatchEvent(e);
+        visor.value = visor.value + event.target.value;
+
       }
     }    
   </script>
 </head>
 <body bgcolor="#4EEE94">
   <br><br><br><div class="titulo">TECLADO VIRTUAL</div><br><br><br>
-  <div>
-    <center><table width="160px" height="160px" cellspacing="0" border="1">
+  <div id="teclado">
+    <center><table id="teclado" width="160px" height="160px" cellspacing="0" border="1">
     	<tr>
     		<td colspan="3"><input class="visor" type="text" id="visor" size="31px" disabled></td>
     	</tr>
     	<tr>
-    		<td><input id="1" type="button" class="button" value="1"></td>
-    		<td><input id="2" type="button" class="button" value="2"></td>
-    		<td><input id="3" type="button" class="button" value="3"></td>
+    		<td><input id="btn1" type="button" class="button" value="1"></td>
+    		<td><input id="btn2" type="button" class="button" value="2"></td>
+    		<td><input id="btn3" type="button" class="button" value="3"></td>
     	</tr>
     	<tr>
-    		<td><input id="4" type="button" class="button" value="4"></td>
-    		<td><input id="5" type="button" class="button" value="5"></td>
-    		<td><input id="6" type="button" class="button" value="6"></td>
+    		<td><input id="btn4" type="button" class="button" value="4"></td>
+    		<td><input id="btn5" type="button" class="button" value="5"></td>
+    		<td><input id="btn6" type="button" class="button" value="6"></td>
     	<tr>
-    		<td><input id="7" type="button" class="button" value="7"></td>
-    		<td><input id="8" type="button" class="button" value="8"></td>
-    		<td><input id="9" type="button" class="button" value="9"></td>
+    		<td><input id="btn7" type="button" class="button" value="7"></td>
+    		<td><input id="btn8" type="button" class="button" value="8"></td>
+    		<td><input id="btn9" type="button" class="button" value="9"></td>
     	</tr>
     	<tr>
-    		<td colspan="3"><input id="0" type="button" class="button0" value="0"></td>
+    		<td colspan="3"><input id="btn0" type="button" class="button0" value="0"></td>
     	</tr>
     </table></center>
   </div>
