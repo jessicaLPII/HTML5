@@ -1,21 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head><title>Geolocalização</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <style>
-  	.titulo{
-  		text-align: center;
-  		font-size: 24px;
-  		font-family: cursive;
-  		text-decoration: underline;
-  	}
+    .titulo{
+      text-align: center;
+      font-size: 24px;
+      font-family: cursive;
+      text-decoration: underline;
+    }
   </style>
   <script>
   </script>
 </head>
-<body bgcolor="#FFA54F">
-  <br><br><br><div class="titulo">GEOLOCALIZAÇÃO</div><br><br><br>
-  
+<body bgcolor="#FFD39B">
+  <br><br><br><div class="titulo">GEOLOCALIZAÇÃO</div><br><br>
+
+  <center><div id="map" style="height:500px; width:700px"></div>
+    <script>
+      var uvvLatLong = [-20.354605, -40.298900];
+      var shopLatLong = [-20.3532, -40.2984];
+      var casaLatLong = [-20.349641, -40.301598];
+      
+      var map = L.map('map').setView(shopLatLong,16);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+      var marcador = L.marker(casaLatLong, {draggable:true}).addTo(map);
+
+      marcador.on('dragend', function(e) {
+        //alert(e.latlng);
+        var popup = L.popup();
+        popup.setContent('<p>Você está na UVV!</p>');
+        marcador.bindPopup(popup);
+      });
+
+      // quadrilátero das bermudas
+            var uvvQuadriLatLng = [
+            [-20.353695, -40.299109],
+            [-20.354268, -40.299417],
+            [-20.354653, -40.299117],
+            [-20.354872, -40.299012],
+            [-20.354766, -40.298746],
+            [-20.354391, -40.298818],
+            [-20.353994, -40.298724],
+            [-20.353762, -40.298732],
+            [-20.353695, -40.299109]]
+            var uvvQuadrilatero = L.polygon(uvvQuadriLatLng);
+            uvvQuadrilatero.addTo(map);
+
+            var shopQuadriLatLng = [
+            [-20.350129, -40.298257],
+            [-20.350562, -40.299019],
+            [-20.351417, -40.299105],
+            [-20.352795, -40.298021],
+            [-20.353901, -40.296422],
+            [-20.353428, -40.296041],
+            [-20.352598, -40.296502],
+            [-20.351486, -40.297688],
+            [-20.350968, -40.297822],
+            [-20.350571, -40.297929],
+            [-20.350129, -40.298257]]
+            var shopQuadrilatero = L.polygon(shopQuadriLatLng);
+            shopQuadrilatero.addTo(map);
+           
+     /* var popup = L.popup();
+      popup.setContent('<p>Você está na UVV!</p>');
+      //dentro do setcontent pode ter um elemento tambem;
+      marcador.bindPopup(popup); */
+    </script>
+  </center>
 </body>
 </html>
