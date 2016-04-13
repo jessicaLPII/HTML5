@@ -31,9 +31,26 @@
 
       marcador.on('dragend', function(e) {
         //alert(e.latlng);
-        var popup = L.popup();
-        popup.setContent('<p>Você está na UVV!</p>');
-        marcador.bindPopup(popup);
+        //var popup = L.popup();
+        //popup.setContent('<p>Você está na UVV!</p>');
+        var posicao = e.target.getLatLng();
+        //var posicaoLat = e.target.getLatLng().lat
+
+        //alert(distanciaY);
+        marcador.on("dragend",function(e){
+          var posicao = e.target.getLatLng();
+          //var chagedPoslat = ev.target.getLatLng().lat;
+          //var chagedPoslng = ev.target.getLatLng().lng;
+                                       
+             if ( posicao.lat < -20.353498 && posicao.lat > -20.354825 && posicao.lng > -40.299777 && posicao.lng < -40.298339  ){                     
+          this.bindPopup( '<img src="http://www.uvv.br/noticias/_MG_9130okbd7ce9b73-7bbe-43f2-85c1-38994c48b72c_ORIGINAL.jpg" width="250" height=175"><br><b>Você está na Universidade Vila Velha!</b>'  ).openPopup();
+        }else if ( posicao.lat < -20.350129 && posicao.lat > -20.353901 && posicao.lng > -40.299105 && posicao.lng < -40.296041  ){
+          this.bindPopup( '<img src="http://www.brmalls.com.br/data/documents/storedDocuments/%7B846C8592-AE90-48A3-BF30-DE59D474043F%7D/%7BB5A28C62-9077-433E-98B1-E5B2F676F865%7D/vilavelha_detalhe.jpg" width="250" height=175"><br><b>Você está no Shopping Vila Velha!</b>'  ).openPopup();
+        }else{
+          this.bindPopup( '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vila_Velha.jpg/250px-Vila_Velha.jpg" width="250" height=175"><br><b>Você está em outro lugar!</b>'  ).openPopup();
+        }
+    
+        })
       });
 
       // quadrilátero das bermudas
