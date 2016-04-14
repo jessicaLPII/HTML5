@@ -204,7 +204,7 @@ function init(){
 			dataArray[i] = bw;
 			dataArray[i+1] = bw;
 			dataArray[i+2] = bw;
-			dataArray[i+3] = bw;
+			dataArray[i+3] = 1*alpha;
 		}
 		ctx.putImageData(imageData,0,0);
     	}
@@ -215,7 +215,7 @@ function init(){
 		//ctx.drawImage(img,img.width,0);
 		//ctx.drawImage(img,2*img.width,0);
 
-		var imageData = ctx.getImageData(0, 0, img.width*0.5, img.height*0.5);
+		var imageData = ctx.getImageData(0, 0, img.width, img.height);
 		var dataArray = imageData.data;
 		for(var i=0; i < dataArray.length; i+=4){
 			var red 	= dataArray[i];
@@ -223,10 +223,10 @@ function init(){
 			var blue	= dataArray[i+2];
 			var alpha	= dataArray[i+3];
 			var bw = (red + green + blue)/3;
-			dataArray[i] = red;
-			dataArray[i+1] = 0;
-			dataArray[i+2] = 0;
-			dataArray[i+3] = 1*alpha;
+			dataArray[i] = (1/4)*red + 0*red + (-1/4)*red;
+			dataArray[i+1] = (2/4)*green + 0*green + (-2/4)*green;
+			dataArray[i+2] = (1/4)*blue + 0*blue + (-1/4)*blue;
+			dataArray[i+3] = 1/4*alpha;
 		}
 		ctx.putImageData(imageData,0,0);
     	}
