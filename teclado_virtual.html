@@ -11,16 +11,16 @@
   		text-decoration: underline;
   	}
   	.button {
-  		width: 81px;
-		height: 50px;
+  		width: 71px;
+		height: 40px;
 	    text-align: center;
 	    display: inline-block;
 	    font-size: 20px;
 	    cursor: pointer;
 	}
 	.button0 {
-		width: 250px;
-		height: 50px;
+		width: 145px;
+		height: 40px;
 		font-size: 20px;
 		cursor: pointer;
 	}
@@ -35,8 +35,11 @@
       button.addEventListener("click", mostrarValor);
       
       function mostrarValor(event){
-        visor.value = visor.value + event.target.value;
-        console.log(event.target);
+        if(event.target.id == "btnClear"){
+          visor.value = "";
+        }else{
+          visor.value = visor.value + event.target.value;
+        }
 
       }
     }    
@@ -47,7 +50,7 @@
   <div id="teclado">
     <center><table id="teclado" width="160px" height="160px" cellspacing="0" border="1">
     	<tr>
-    		<td colspan="3"><input class="visor" type="text" id="visor" size="31px" disabled></td>
+    		<td colspan="3"><input class="visor" type="text" id="visor" size="32px" disabled></td>
     	</tr>
     	<tr>
     		<td><input id="btn1" type="button" class="button" value="1"></td>
@@ -64,7 +67,9 @@
     		<td><input id="btn9" type="button" class="button" value="9"></td>
     	</tr>
     	<tr>
-    		<td colspan="3"><input id="btn0" type="button" class="button0" value="0"></td>
+    		<!--<td colspan="2"><input id="btn0" type="button" class="button0" value="0"></td>-->
+        <td colspan=2><input id="btn0" type="button" class="button0" value="0"></td>
+        <td><input id="btnClear" type="button" class="button" value="Clear"></td>
     	</tr>
     </table></center>
   </div>
